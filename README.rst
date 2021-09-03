@@ -20,8 +20,8 @@ opened plugin settings.
 Commands
 --------
 
-- ``/ch-update`` manually check for updates.
-- ``/ch-reload`` reload the plugin.
+- ``/ce-update`` manually check for updates.
+- ``/ce-reload`` reload the plugin.
 
 
 Settings
