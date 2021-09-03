@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 
 wrapper_module_path = Path(__file__).parent.absolute()
-main_module_path = wrapper_module_path / 'chat_history'
+main_module_path = wrapper_module_path / 'chat_encounters'
 module_str = str(wrapper_module_path)
 
 # Module injection + cleanup of previous injection if need be
@@ -14,6 +14,6 @@ for name, module in list(sys.modules.items())[:]:
     if name.startswith(main_module_path.name):
         sys.modules.pop(name)
 
-from chat_history import Plugin
+from chat_encounters import Plugin
 
 __all__ = ['Plugin']

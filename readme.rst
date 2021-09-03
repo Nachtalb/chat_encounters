@@ -1,4 +1,4 @@
-Chat History
+Chat Encounters
 ============
 
 A plugin for `Nicotine+`_.
@@ -13,7 +13,7 @@ Open Nicotine+ settings, go to *General > Plugins* and click *+ Add
 Plugins*. After that download the latest `release`_ and extract it into
 the plugins folder.
 
-Now you can enable the *Chat History* plugin in the previously
+Now you can enable the *Chat Encounters* plugin in the previously
 opened plugin settings.
 
 
@@ -46,5 +46,5 @@ License
 `GNU GPL v3.0`_
 
 .. _Nicotine+: https://nicotine-plus.github.io/nicotine-plus/
-.. _release: https://github.com/Nachtalb/chat_history/releases
-.. _GNU GPL v3.0: https://github.com/Nachtalb/chat_history/blob/master/LICENSE
+.. _release: https://github.com/Nachtalb/chat_encounters/releases
+.. _GNU GPL v3.0: https://github.com/Nachtalb/chat_encounters/blob/master/LICENSE

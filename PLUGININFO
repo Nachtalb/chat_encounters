@@ -1,6 +1,6 @@
 Version="1.0.0.dev0"
 Authors=['Nachtalb']
-Name="Chat History DEV"
+Name="Chat Encounters DEV"
 Description="Collect a record of who you talk with in case you accidentally close a chat tab."
-Repository="Nachtalb/chat_history"
-Prefix="dch"
+Repository="Nachtalb/chat_encounters"
+Prefix="dce"
