@@ -1,6 +1,6 @@
-Version="1.0.0.dev0"
+Version="1.0.0"
 Authors=['Nachtalb']
-Name="Chat Encounters DEV"
-Description="Collect a record of who you talk with in case you accidentally close a chat tab."
+Name="Chat Encounters"
+Description="Collect a record of who you talk with in case you accidentally close a chat tab.\n\n\n\"/ce [who | how many]\": Show last encounters. By default the last 15. You can give another amount as argument or who."
 Repository="Nachtalb/chat_encounters"
-Prefix="dce"
+Prefix="ce"

@@ -1,1 +1,4 @@
 Collect a record of who you talk with in case you accidentally close a chat tab.
+
+
+"/ce [who | how many]": Show last encounters. By default the last 15. You can give another amount as argument or who.
