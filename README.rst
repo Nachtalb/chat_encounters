@@ -20,6 +20,7 @@ opened plugin settings.
 Commands
 --------
 
+- ``/ce [who | how many]`` Show last encounters. By default the last 15. You can give another amount as argument or who.
 - ``/ce-update`` manually check for updates.
 - ``/ce-reload`` reload the plugin.
 
