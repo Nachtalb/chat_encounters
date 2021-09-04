@@ -1,0 +1,25 @@
+name: zip-n-release
+on:
+  push:
+    tags:
+      - "v*.*.*"
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ env.GITHUB_REF }}
+          path: chat_encounters
+      - name: zip
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: 'chat_encounters.zip'
+          path: 'chat_encounters'
+          exclusions: 'chat_encounters/*.git* chat_encounters/.gitgub chat_encounters/.gitignore chat_encounters/.flake8 chat_encounters/DESCRIPTION chat_encounters/releaser'
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: 'chat_encounters.zip'
+          draft: true
