@@ -1,4 +1,4 @@
-Version="1.0.1.dev0"
+Version="1.1.0"
 Authors=['Nachtalb']
 Name="Chat Encounters"
 Description="Collect a record of who you talk with in case you accidentally close a chat tab.\n\n\n\"/ce [who | how many]\": Show last encounters. By default the last 15. You can give another amount as argument or who."
