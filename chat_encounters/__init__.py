@@ -27,34 +27,53 @@ class Plugin(BasePlugin):
         return datetime.utcfromtimestamp(time).strftime('%Y-%m-%d, %H:%M:%S')
 
     def incoming_public_chat_notification(self, room, user, _):
-        self.logs[user] = (int(time()), '#' + room)
+        self.logs.setdefault('#' + room, {})
+        self.logs['#' + room][user] = time()
         self.save()
 
     def incoming_private_chat_notification(self, user, _):
-        self.logs[user] = (int(time()), 'private')
+        self.logs.setdefault('private', {})
+        self.logs['private'][user] = time()
         self.save()
 
     @command
     def encounters(self, args=[]):
-        msg = ''
-        total = 15
-        if args and isinstance(args[0], int):
-            total = args[0]
-        elif args and args[0] == 'all':
-            total = None
+        msg = 'Last Encounters'
+        encounters = []
+        key = None
+
+        tot = 15
+        if len(args) > 1:
+            key, tot = args[:2]
         elif args:
-            time, place = self.logs.get(args[0], (None, None))
-            if time:
-                msg = f'You met {args[0]} at {self.strftime(time)} in {place}'
+            tot = args[0]
+
+        total = int(tot) if isinstance(tot, (int, float)) else None if tot == 'all' else -1
+        if total == -1:
+            if not key:
+                key = tot
+            total = 15
+
+        if isinstance(key, str):
+            if key == 'private' or key.startswith('#'):
+                msg += f' in {key}'
+                encounters = [(key, u, t) for u, t in self.logs.get(key, {}).items()]
             else:
-                msg = f'You haven\'t met {args[0]} yet'
-        if not msg:
-            encounters = sorted(self.logs.items(), key=lambda i: i[1][0], reverse=True)[:total]
-            msg = f'Last Encounters [{len(encounters)}]:\nTime - Place - User\n' + '\n'.join(
-                [f'- {self.strftime(v[0])} - {v[1]} - {u}'
-                 for u, v in encounters])
-        if msg:
-            self.info_window(msg, with_prefix=False)
+                msg += f' with {key}'
+
+        if not encounters:
+            for place, users in self.logs.items():
+                for user, time_ in users.items():
+                    if key and key != user:
+                        continue
+                    encounters.append((place, user, time_))
+
+        encounters = sorted(encounters, key=lambda i: i[2], reverse=True)[:total]
+        msg += f' [{len(encounters)}]:\nTime - Place - User\n' + '\n'.join(
+            [f'- {self.strftime(t)} - {p} - {u}'
+             for p, u, t in encounters])
+
+        self.info_window(msg, with_prefix=False)
 
     __privatecommands__ = __publiccommands__ = [
         ('', encounters)

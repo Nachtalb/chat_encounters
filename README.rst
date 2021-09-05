@@ -25,7 +25,10 @@ opened plugin settings.
 Commands
 --------
 
-- ``/ce [who | how many]`` Show last encounters. By default the last 15. You can give another amount as argument or who.
+- ``/ce [1] [2]`` Show last encounters. Both arguments are optional.
+  First argument can be a place (`#channel` or `private`), a name
+  `some_user` or a number (any number like `4` or `all`). If a second
+  argument is given it's awlays a number or `all`.
 - ``/ce-update`` manually check for updates.
 - ``/ce-reload`` reload the plugin.
 
