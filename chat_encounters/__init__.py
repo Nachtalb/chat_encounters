@@ -2,8 +2,8 @@ from datetime import datetime
 import json
 from time import time
 
-from .base import BASE_PATH, BasePlugin
-from .utils import command
+from .core.base import BASE_PATH, BasePlugin
+from .core.utils import command
 
 
 class Plugin(BasePlugin):

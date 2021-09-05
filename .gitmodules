@@ -1,0 +1,3 @@
+[submodule "chat_encounters/core"]
+	path = chat_encounters/core
+	url = git@github.com:Nachtalb/np_plugin.core.git

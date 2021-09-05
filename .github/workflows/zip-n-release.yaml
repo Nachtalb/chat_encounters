@@ -12,12 +12,21 @@ jobs:
         with:
           ref: ${{ env.GITHUB_REF }}
           path: chat_encounters
+          submodules: recursive
       - name: zip
         uses: thedoctor0/zip-release@master
         with:
           filename: 'chat_encounters.zip'
           path: 'chat_encounters'
-          exclusions: 'chat_encounters/*.git* chat_encounters/.gitgub chat_encounters/.gitignore chat_encounters/.flake8 chat_encounters/DESCRIPTION chat_encounters/releaser'
+          exclusions: >-
+            chat_encounters/*.git*
+            chat_encounters/.gitgub
+            chat_encounters/.gitignore
+            chat_encounters/.flake8
+            chat_encounters/DESCRIPTION
+            chat_encounters/releaser
+            chat_encounters/_config.yml
+            chat_encounters/chat_encounters/core/*.git*
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
